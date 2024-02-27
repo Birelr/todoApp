@@ -34,8 +34,6 @@ function addTask() {
                 dropdownContent.style.display = "none";
             }
         });
-
-
     }
     taskInput.value = '';
     document.addEventListener('click', function(event) {
@@ -54,7 +52,6 @@ function addTask() {
 }
 
 addBtn.addEventListener('click', addTask);
-
 taskInput.addEventListener("keydown", function (event) {
     if(event.key === "Enter"){
         addTask();
@@ -74,11 +71,22 @@ clearBtn.addEventListener('click', () => {
 
 function deleteTask() {
     let li = document.querySelector('.lielement');
+    let labelElement = li.querySelector('label');
+    let task = labelElement.textContent;
+    let index = taskList.indexOf(task);
+    if (index > -1) {
+        taskList.splice(index, 1);
+    }
     li.remove();
 };
 function editTask() {
     let li = document.querySelector('.lielement');
     let labelElement = li.querySelector('label');
+    let task = labelElement.textContent;
+    let index = taskList.indexOf(task);
+    if (index > -1) {
+        taskList.splice(index, 1);
+    }
     li.remove();
-    taskInput.value = labelElement.textContent;
+    taskInput.value = task;
 };
