@@ -106,12 +106,19 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #d0d0d070;
     color: #000000;
-    min-width: 160px;
+    min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
+    padding: 12px 10px;
     z-index: 1;
     border-radius: 5px;
 }
-
+.checked{
+    text-decoration: line-through;
+}
+#deletebtn, #editbtn{
+    padding: 5px;
+    color: #ffffff;
+    cursor: pointer;
+}

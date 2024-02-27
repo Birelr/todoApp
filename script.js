@@ -2,7 +2,6 @@ let addBtn = document.getElementById('add');
 let taskInput = document.getElementById('input');
 let clearBtn = document.getElementById('clear');
 
-
 let taskList = [];
 function addTask() {
     let task = taskInput.value;
@@ -14,7 +13,7 @@ function addTask() {
             <div class="formcheck">
                 <div class="taskl">
                     <input class="chbx" type="checkbox" id="${taskList.length}">
-                    <label for="${taskList.length}">${task}</label>
+                        <label for="${taskList.length}">${task}</label>
                 </div>
                 <span id="iconspan"> 
                 <svg class="img1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" id="Ellipsis"><path d="M576 736v192q0 40-28 68t-68 28H288q-40 0-68-28t-28-68V736q0-40 28-68t68-28h192q40 0 68 28t28 68zm512 0v192q0 40-28 68t-68 28H800q-40 0-68-28t-28-68V736q0-40 28-68t68-28h192q40 0 68 28t28 68zm512 0v192q0 40-28 68t-68 28h-192q-40 0-68-28t-28-68V736q0-40 28-68t68-28h192q40 0 68 28t28 68z" fill="#ffffff" class="color000000 svgShape"></path></svg>
@@ -36,6 +35,18 @@ function addTask() {
         });
     }
     taskInput.value = '';
+    document.addEventListener('change', function(event) {
+        if (event.target.classList.contains('chbx')) {
+            let labelForCheckbox = event.target.nextElementSibling;
+            if (event.target.checked) {
+                labelForCheckbox.classList.add('checked');
+            } else {
+                labelForCheckbox.classList.remove('checked');
+            }
+        }
+    });
+
+    
     document.addEventListener('click', function(event) {
         let dropdowns = document.querySelectorAll('.dropdown-content');
         dropdowns.forEach(function(dropdownContent) {
@@ -90,3 +101,5 @@ function editTask() {
     li.remove();
     taskInput.value = task;
 };
+
+
