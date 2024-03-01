@@ -118,11 +118,11 @@ body {
     z-index: 1;
     border-radius: 5px;
 }
-.checked{
-    text-decoration: line-through;
-}
 #deletebtn, #editbtn{
     padding: 5px;
     color: #ffffff;
     cursor: pointer;
 }
+.lielement input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+  }
